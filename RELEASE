@@ -1,0 +1,24 @@
+IPFS hash of the deployment:
+- CIDv0: `QmY1uds14DFpDG7TsuCqiH5965u1GCVZPZ4GQ9AgcMCjcb`
+- CIDv1: `bafybeiepy63dfywcra662v3iuz2ym2aiz7smx6syyiaga6yttjjgf53oca`
+
+The latest release is always mirrored at [app.uniswap.org](https://app.uniswap.org).
+
+You can also access the Uniswap Interface from an IPFS gateway.
+**BEWARE**: The Uniswap interface uses [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to remember your settings, such as which tokens you have imported.
+**You should always use an IPFS gateway that enforces origin separation**, or our hosted deployment of the latest release at [app.uniswap.org](https://app.uniswap.org).
+Your Uniswap settings are never remembered across different URLs.
+
+IPFS gateways:
+- https://bafybeiepy63dfywcra662v3iuz2ym2aiz7smx6syyiaga6yttjjgf53oca.ipfs.dweb.link/
+- https://bafybeiepy63dfywcra662v3iuz2ym2aiz7smx6syyiaga6yttjjgf53oca.ipfs.cf-ipfs.com/
+- [ipfs://QmY1uds14DFpDG7TsuCqiH5965u1GCVZPZ4GQ9AgcMCjcb/](ipfs://QmY1uds14DFpDG7TsuCqiH5965u1GCVZPZ4GQ9AgcMCjcb/)
+
+### 5.38.1 (2024-07-03)
+
+
+### Bug Fixes
+
+* **web:** hotfix for rive not loading (#9859) 9c6a007
+
+
