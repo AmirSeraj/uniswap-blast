@@ -136,7 +136,8 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
 `
 
 export const SwapSection = styled.div`
-  background-color: ${({ theme }) => theme.surface2};
+  // background-color: ${({ theme }) => theme.surface2};
+  background-color: #271f1f;
   border-radius: 16px;
   color: ${({ theme }) => theme.neutral2};
   font-size: 14px;
