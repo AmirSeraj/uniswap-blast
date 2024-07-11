@@ -25,11 +25,12 @@ import { useFeatureFlag } from 'uniswap/src/features/gating/hooks'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { InterfaceChainId } from 'uniswap/src/types/chains'
 import { SwapTab } from 'uniswap/src/types/screens/interface'
+import './styles.css'
 
 export function getIsReviewableQuote(
   trade: InterfaceTrade | undefined,
   tradeState: TradeState,
-  swapInputError?: ReactNode,
+  swapInputError?: ReactNode
 ): boolean {
   if (swapInputError) {
     return false
@@ -76,16 +77,16 @@ export default function SwapPage({ className }: { className?: string }) {
  * chain (e.g. the TDP), then chainId should refer to the unconnected chain.
  */
 export function Swap({
-  className,
-  initialInputCurrency,
-  initialOutputCurrency,
-  chainId,
-  onCurrencyChange,
-  multichainUXEnabled = false,
-  disableTokenInputs = false,
-  compact = false,
-  syncTabToUrl,
-}: {
+                       className,
+                       initialInputCurrency,
+                       initialOutputCurrency,
+                       chainId,
+                       onCurrencyChange,
+                       multichainUXEnabled = false,
+                       disableTokenInputs = false,
+                       compact = false,
+                       syncTabToUrl
+                     }: {
   className?: string
   chainId?: InterfaceChainId
   onCurrencyChange?: (selected: CurrencyState) => void
@@ -112,22 +113,24 @@ export function Swap({
       <SwapAndLimitContext.Consumer>
         {({ currentTab }) => (
           <SwapContextProvider multichainUXEnabled={multichainUXEnabled}>
-            <Flex width="100%">
-              <SwapWrapper isDark={isDark} className={className} id="swap-page">
-                <SwapHeader compact={compact || !screenSize.sm} syncTabToUrl={syncTabToUrl} />
-                {currentTab === SwapTab.Swap && (
-                  <SwapForm onCurrencyChange={onCurrencyChange} disableTokenInputs={disableTokenInputs} />
-                )}
-                {currentTab === SwapTab.Limit && <LimitFormWrapper onCurrencyChange={onCurrencyChange} />}
-                {currentTab === SwapTab.Send && (
-                  <SendForm disableTokenInputs={disableTokenInputs} onCurrencyChange={onCurrencyChange} />
-                )}
-                {currentTab === SwapTab.Buy && forAggregatorEnabled && (
-                  <BuyForm disabled={disableTokenInputs || !isConnected} />
-                )}
-              </SwapWrapper>
-              <NetworkAlert />
-            </Flex>
+            <div className='container'>
+              <Flex width="100%">
+                <SwapWrapper isDark={isDark} className={className} id="swap-page">
+                  <SwapHeader compact={compact || !screenSize.sm} syncTabToUrl={syncTabToUrl} />
+                  {currentTab === SwapTab.Swap && (
+                    <SwapForm onCurrencyChange={onCurrencyChange} disableTokenInputs={disableTokenInputs} />
+                  )}
+                  {currentTab === SwapTab.Limit && <LimitFormWrapper onCurrencyChange={onCurrencyChange} />}
+                  {currentTab === SwapTab.Send && (
+                    <SendForm disableTokenInputs={disableTokenInputs} onCurrencyChange={onCurrencyChange} />
+                  )}
+                  {currentTab === SwapTab.Buy && forAggregatorEnabled && (
+                    <BuyForm disabled={disableTokenInputs || !isConnected} />
+                  )}
+                </SwapWrapper>
+                <NetworkAlert />
+              </Flex>
+            </div>
           </SwapContextProvider>
         )}
       </SwapAndLimitContext.Consumer>

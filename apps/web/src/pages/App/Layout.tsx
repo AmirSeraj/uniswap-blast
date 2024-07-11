@@ -11,7 +11,7 @@ import { useFeatureFlag } from 'uniswap/src/features/gating/hooks'
 
 const AppContainer = styled.div`
   min-height: 100vh;
-
+  background-color: #696812;
   // grid container settings
   display: grid;
   grid-template-columns: 1fr;
